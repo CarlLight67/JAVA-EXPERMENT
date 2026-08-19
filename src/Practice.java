@@ -49,6 +49,7 @@ public class Practice {
         System.out.print("THIS IS THE OUTPUT: ");
         multiply(num1,num2); // this is connected to the other class
         input.close();
+        //testing
     }
 
 }
