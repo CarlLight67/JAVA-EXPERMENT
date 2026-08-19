@@ -1,17 +1,16 @@
-import org.w3c.dom.html.HTMLImageElement;
-
 import java.util.Scanner;
+
 public class Practice {
 
-    public static void time(long mill){ //this is for the time. you can adjust the time by changing the value of the time() <= inside of this () you can input the value of the time you want 1000 is equivalent to 1 second.
+    //this is for the time. you can adjust the time by changing the value of the time() <= inside of this () you can input the value of the time you want 1000 is equivalent to 1 second.
 
+    public static void time(long mill) {
         try {
             Thread.sleep(mill); // Waits
         } catch (InterruptedException e) {
             // Restore the interrupted status
             Thread.currentThread().interrupt();
         }
-
     }
 
     public static void clearScreen() {
@@ -29,19 +28,27 @@ public class Practice {
             System.out.print("\033[H\033[2J");
             System.out.flush();
         }
-
-        Scanner input = new Scanner(System.in);
-
-        int num1,num2;
-
-        System.out.print("First num: "); num1 = input.nextInt();
-
-        System.out.print("Second num: "); num2 = input.nextInt();
+    }
 
 
-
-        input.close();
+    public static void multiply(int a, int b){
+        System.out.print(a * b);
 
 
     }
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int num1, num2;
+
+        System.out.print("First num: ");
+        num1 = input.nextInt();
+
+        System.out.print("Second num: ");
+        num2 = input.nextInt();
+
+        System.out.print("THIS IS THE OUTPUT: ");
+        multiply(num1,num2); // this is connected to the other class
+        input.close();
+    }
+
 }
