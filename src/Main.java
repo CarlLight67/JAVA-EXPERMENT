@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main{ //the use of this is to identify the name of the file and locate it
+public class Main { //the use of this is to identify the name of the file and locate it
 
     public static void clearScreen() {
         try {
@@ -20,9 +20,9 @@ public class Main{ //the use of this is to identify the name of the file and loc
     }
     public static void main(String[] args)
     {
-        // this is the line that need so that it can be run (static,void,public); this is some of the thing that can be use here
+        // this is the line that need so that it can be run (static,void,public); this is some of the thing that can be use
 
-        //THIS IS STRING THAT CAN BE USE AGAIN
+        //THIS IS STRING THAT CAN BE USE AGAIN/**/
 
         String line = ("=====================================");
 
@@ -104,6 +104,7 @@ public class Main{ //the use of this is to identify the name of the file and loc
 
         Scanner input  = new Scanner(System.in); // THIS IS THE START OF THE SCANNER SO THAT WE CAN JUST
 
+
         System.out.print("What is your name?: ");
 
         String AskName = input.nextLine();
@@ -111,11 +112,12 @@ public class Main{ //the use of this is to identify the name of the file and loc
         System.out.print("How old are you? : ");
 
         int AskAge = input.nextInt();
+        input.nextLine(); // this is important to put because it will cause bug and not skip this stage it stuck to this section
 
 
 
         System.out.println("\n" + "YOUR NAME IS "+ AskName + "\n");
-        System.out.println("AGE OF " + AskAge);
+
 
         if (AskAge <= 0) {
 
@@ -125,12 +127,68 @@ public class Main{ //the use of this is to identify the name of the file and loc
             System.out.println("\nyou are legal age. you are old");
         }
         else {
+
             // If it's not <= 0 and not >= 19, it must be between 1 and 18
-            System.out.println( AskAge + "\n ???you are baby XD");
+            System.out.println("\nTF UR ONLY " + AskAge + "???you are baby XD");
         }
 
+        clearScreen();
+
+        System.out.println("HI THIS IS NEW SECTION:)");
+
+        System.out.print("do you want to clear the screen?\nY || N?: ");
+
+        String askYN = input.nextLine();
+
+        if(askYN.equalsIgnoreCase("Y")) { ///so if using ./equalIgnoreCase is for any type of cases for exmaple if its big or small,it is okay not important if its correct or accurate...while using the the .equal it is super accurate ,however this is only for objects class adn strings like for example (String,Double,Integers,Boolean,Array,Characters,etc...).only use the == is this is primitive types (int, double, char, boolean, float, long, short, byte), this check if the values are equal
+
+        /*
+                               PRIMATIVE
+        =============================================================
+        byte	8-bit	Integer (-128 to 127)	byte b = 10;
+        short	16-bit	Integer (-32,768 to 32,767)	short s = 1000;
+        int	32-bit	Standard integer	int i = 100000;
+        long	64-bit	Large integer	long l = 100000000L;
+        float	32-bit	Decimal number	float f = 5.5f;
+        double	64-bit	Large decimal number	double d = 19.99;
+        char	16-bit	Single character	char c = 'A';
+        boolean	1-bit	True or False	boolean flag = true;
+        =============================================================
+
+        =============================================================
+                                  REFERENCES
+        =============================================================
+
+                                  STRING
+                                  ARRAY
+                                  OBJECTS
+
+        =============================================================
+
+
+        * */
+
+
+            System.out.println("this is good");
+        }
+        else {
+            System.out.println("this is bad");
+        }
+
+        System.out.println("DO YOU WANT TO CLEAR?\n(Y or N)?");
+
+        String cls = input.nextLine();
+
+        if(cls.equalsIgnoreCase("y")){
+            System.out.println("okay");
+            clearScreen();
+        }
+        else{
+            return;
+        }
 
         input.close();
+
 
     }
 }
