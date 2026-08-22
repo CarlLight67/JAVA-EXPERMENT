@@ -140,8 +140,7 @@ public class Main { //the use of this is to identify the name of the file and lo
 
         String askYN = input.nextLine();
 
-        if(askYN.equalsIgnoreCase("Y")) { ///so if using ./equalIgnoreCase is for any type of cases for exmaple if its big or small,it is okay not important if its correct or accurate...while using the the .equal it is super accurate ,however this is only for objects class adn strings like for example (String,Double,Integers,Boolean,Array,Characters,etc...).only use the == is this is primitive types (int, double, char, boolean, float, long, short, byte), this check if the values are equal
-
+        if(askYN.equalsIgnoreCase("Y")) { //so if using ./equalIgnoreCase is for any type of cases for example if its big or small,it is okay not important if its correct or accurate...while using the the .equal it is super accurate ,however this is only for objects class adn strings like for example (String,Double,Integers,Boolean,Array,Characters,etc...).only use the == is this is primitive types (int, double, char, boolean, float, long, short, byte), this check if the values are equal
         /*
                                PRIMATIVE
         =============================================================
