@@ -52,6 +52,7 @@ public class Practice {
     public static void main(String[] args) {
 
         // passsword and username. soon gonna build the hash on this
+
         String username = "LightYagami";
         String password = "Light123";
 
@@ -74,19 +75,22 @@ public class Practice {
         passLog = input.nextLine();
 
         if (userLog.equals(username) && passLog.equals(password)){
-            System.out.print("SUCCESSFUL LOGIN");
+            System.out.print("\nSUCCESSFUL LOGIN");
             time(3000);
             clearScreen();
         }
         else{
+            System.out.println("\nOPPSIEEE YOUR PASSWORD OR USERNAME IS INCORRECT XD");
+            time(2000);
             return;
         }
 
-        System.out.println("\nCHOICE YOUR ARITHMETIC WEAPON HERE: ");
+        System.out.print("\nCHOICE YOUR ARITHMETIC WEAPON HERE: ");
 
         int weapon;
 
         String choices = "\n1.) ADDITION\n2.) SUBTRACTION\n3.) MULTIPLICATION\n4.) DIVISION";
+
         System.out.println(choices);
 
         System.out.print("\nENTER YOUR ARITHMETIC WEAPON NUMBER: ");
@@ -99,24 +103,30 @@ public class Practice {
         }
 
         // FIX: Get the numbers directly here using the existing 'input' scanner
-        System.out.print("ENTER YOUR FIRST VALUE: ");
+        System.out.print("\nENTER YOUR FIRST VALUE: ");
         double num1 = input.nextDouble(); // Changed to double to match your math methods
 
         System.out.print("ENTER YOUR SECOND VALUE: ");
 
         double num2 = input.nextDouble();
 
+        String total = "\nTHE TOTAL VALUE IS: ";
+
         // FIX: Call the methods and pass the numbers (num1, num2)
         if(weapon == 1){
+            System.out.printf("%s",total);
             addition(num1, num2);
         }
         else if (weapon == 2) {
+            System.out.printf("%s",total);
             subtraction(num1, num2);
         }
         else if (weapon == 3) {
+            System.out.printf("%s",total);
             multiply(num1, num2);
         }
         else if (weapon == 4) {
+            System.out.printf("%s",total);
             division(num1, num2);
         }
         else{
