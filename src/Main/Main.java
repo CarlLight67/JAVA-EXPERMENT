@@ -1,23 +1,23 @@
 import java.util.Scanner;
 
-public class Main { //the use of this is to identify the name of the file and locate it
+    public class Main { //the use of this is to identify the name of the file and locate it
 
-    public static void clearScreen() {
-        try {
-            // Check if running on Windows
-            if (System.getProperty("os.name").contains("Windows")) {
-                // Use 'cls' command for Windows
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            } else {
-                // Use 'clear' for Linux/Mac
-                new ProcessBuilder("clear").inheritIO().start().waitFor();
+        public static void clearScreen() {
+            try {
+                // Check if running on Windows
+                if (System.getProperty("os.name").contains("Windows")) {
+                    // Use 'cls' command for Windows
+                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                } else {
+                    // Use 'clear' for Linux/Mac
+                    new ProcessBuilder("clear").inheritIO().start().waitFor();
+                }
+            } catch (Exception e) {
+                // Fallback if command fails
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
             }
-        } catch (Exception e) {
-            // Fallback if command fails
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
         }
-    }
     public static void main(String[] args)
     {
         // this is the line that need so that it can be run (static,void,public); this is some of the thing that can be use
@@ -42,7 +42,7 @@ public class Main { //the use of this is to identify the name of the file and lo
 
         // as you can see now this are the variable that have value, now this is what we called assigned valued.. if none assignment
 
-        numbers = 150;
+        numbers = 150; //
         one = 'A';
         identify = true;
         value = 100;
