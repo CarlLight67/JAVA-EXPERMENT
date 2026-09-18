@@ -18,6 +18,15 @@ import java.util.Scanner;
                 System.out.flush();
             }
         }
+
+        public static void time(long mill) {
+            try {
+                Thread.sleep(mill); // Waits
+            } catch (InterruptedException e) {
+                // Restore the interrupted status
+                Thread.currentThread().interrupt();
+            }
+        }
     public static void main(String[] args)
     {
         // this is the line that need so that it can be run (static,void,public); this is some of the thing that can be use
@@ -140,7 +149,6 @@ import java.util.Scanner;
 
         String askYN = input.nextLine();
 
-        if(askYN.equalsIgnoreCase("Y")) { //so if using ./equalIgnoreCase is for any type of cases for example if its big or small,it is okay not important if its correct or accurate...while using the the .equal it is super accurate ,however this is only for objects class adn strings like for example (String,Double,Integers,Boolean,Array,Characters,etc...).only use the == is this is primitive types (int, double, char, boolean, float, long, short, byte), this check if the values are equal
         /*
                                PRIMATIVE
         =============================================================
@@ -164,30 +172,6 @@ import java.util.Scanner;
 
         =============================================================
 
-
         * */
-
-
-            System.out.println("this is good");
-        }
-        else {
-            System.out.println("this is bad");
-        }
-
-        System.out.println("DO YOU WANT TO CLEAR?\n(Y or N)?");
-
-        String cls = input.nextLine();
-
-        if(cls.equalsIgnoreCase("y")){
-            System.out.println("okay");
-            clearScreen();
-        }
-        else{
-            return;
-        }
-
-        input.close();
-
-
     }
 }
