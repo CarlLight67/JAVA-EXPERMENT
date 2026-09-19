@@ -8,26 +8,6 @@ public class RandomGame {
         String titleIntro = "MY GAME";
         String intro = "WELCOME TO RANDOM GAME";
 
-        /*
-         * Standard Layout: JOptionPane.showMessageDialog
-         *
-         * Signature:
-         * JOptionPane.showMessageDialog(
-         *
-         * Component parentComponent,
-         *  Object message,
-         *  String title,
-         *  int messageType,
-         *  Icon icon);
-         *
-         * Parameters:
-         * 1. parentComponent : Determines the Frame in which the dialog is displayed (usually 'null' for center screen).
-         * 2. message         : The text string or object to display inside the dialog.
-         * 3. title           : The text string displayed in the dialog window's title bar.
-         * 4. messageType     : The style of the message (e.g., JOptionPane.PLAIN_MESSAGE, INFORMATION_MESSAGE, ERROR_MESSAGE, WARNING_MESSAGE).
-         * 5. icon            : Custom ImageIcon to display (optional/can be 'null' for default icons).
-         */
-
         JOptionPane.showMessageDialog(
                 null,
                 intro,
@@ -41,7 +21,6 @@ public class RandomGame {
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.INFORMATION_MESSAGE
         );
-
 
         if (confirmation == JOptionPane.YES_OPTION) {
             JOptionPane.showMessageDialog(
@@ -60,11 +39,9 @@ public class RandomGame {
             );
             System.exit(0);
         }
-
     }
 
     public static void Game() {
-
 
         String rules = "=== ROCK, PAPER, SCISSORS RULES === " + "\n\n"
                 + "1. ✊ Rock CRUSHES Scissors\n"
@@ -73,7 +50,6 @@ public class RandomGame {
                 + "Same choices result in a TIE!\n"
                 + "First to win 3 rounds wins the game!";
 
-
         JOptionPane.showMessageDialog(
                 null,
                 rules,
@@ -81,88 +57,105 @@ public class RandomGame {
                 JOptionPane.INFORMATION_MESSAGE
         );
 
-
-        String win = "YOU WIN!";
-        String lose = "YOU LOSE!";
-        String draw = "IT'S A TIE!";
-
-        String res = "RESULT!!!";
-        String input = "";
-        int ai = AiPick();
         int AiScore = 0;
         int userScore = 0;
 
+        int rock = 1;
+        int paper = 2;
+        int scissor = 3;
 
-        //==================================================
+        String win = "YOU WIN THIS ROUND!";
+        String lose = "YOU LOSE THIS ROUND!";
+        String draw = "IT'S A TIE!";
+        String res = "RESULT!!!";
 
-        int rock, paper, scissor;
-        rock = 1;
-        paper = 2;
-        scissor = 3;
+        // Loop runs until someone reaches 3 points!
+        while (userScore < 3 && AiScore < 3) {
 
-        //==================================================
+            // Generate a fresh pick for the AI each round
+            int ai = AiPick();
+            int user = 0;
 
-
-
-        int user = 0;
-
-        input = JOptionPane.showInputDialog(
-                null,
-                "INPUT YOUR NUMBER",
-                        "PICK",
+            String input = JOptionPane.showInputDialog(
+                    null,
+                    "INPUT YOUR NUMBER:\n1 = ✊ Rock\n2 = ✋ Paper\n3 = ✌️ Scissors",
+                    "PICK",
                     JOptionPane.PLAIN_MESSAGE
+            );
+
+            // Handle Cancel button safely
+            if (input == null) {
+                System.exit(0);
+            }
+
+            // Input validation with try-catch
+            try {
+                user = Integer.parseInt(input.trim());
+                if (user < 1 || user > 3) {
+                    JOptionPane.showMessageDialog(null, "Please enter 1, 2, or 3 only!");
+                    continue; // Restart the loop prompt
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Invalid input! Please enter a number.");
+                continue; // Restart the loop prompt
+            }
+
+            // Round Outcome Logic
+            if (user == ai) {
+                JOptionPane.showMessageDialog(
+                        null,
+                        draw,
+                        res,
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+            }
+            // Correct User Win Conditions
+            else if ((user == rock && ai == scissor) ||
+                    (user == paper && ai == rock) ||
+                    (user == scissor && ai == paper)) {
+
+                ++userScore;
+                JOptionPane.showMessageDialog(
+                        null,
+                        win,
+                        res,
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+                ShowStat(userScore, AiScore);
+            }
+            // AI Wins Condition
+            else {
+
+                ++AiScore;
+                JOptionPane.showMessageDialog(
+                        null,
+                        lose,
+                        res,
+                        JOptionPane.ERROR_MESSAGE
+                );
+                ShowStat(userScore, AiScore);
+            }
+        } // End of game loop
+
+        // Final Winner Announcement
+        if (userScore == 3) {
+            JOptionPane.showMessageDialog(null, "🎉 CONGRATULATIONS! YOU WON THE GAME! 🎉");
+        } else {
+            JOptionPane.showMessageDialog(null, "💀 GAME OVER! COMPUTER WON THE GAME! 💀");
+        }
+    }
+
+    public static void ShowStat(int userScore, int AiScore) {
+        JOptionPane.showMessageDialog(
+                null,
+                "Current Standing:",
+                "YOUR SCORE: " + userScore + " V.S COMPUTER SCORE: " + AiScore,
+                JOptionPane.INFORMATION_MESSAGE
         );
-        user = Integer.parseInt(input);
-
-
-        ///needed to update kase may problem sya sa pag identify ng input need kopa chcek later
-
-
-
-
-
-
-        //==================================================
-        if (user == ai) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    draw,
-                    res,
-                    JOptionPane.INFORMATION_MESSAGE
-            );
-        }
-        else if((user == paper && ai == scissor) || (user == rock && ai == paper) || (user == paper && ai == scissor)){
-
-            JOptionPane.showMessageDialog(
-                    null,
-                    win,
-                    res,
-                    JOptionPane.INFORMATION_MESSAGE
-            );
-
-        }
-        else {
-
-            JOptionPane.showMessageDialog(
-                    null,
-                    lose,
-                    res,
-                    JOptionPane.ERROR_MESSAGE
-            );
-        }
-
-        //==================================================
-
-
     }
 
     public static int AiPick() {
         Random random = new Random();
-        int rock, paper, scissor;
-        rock = 1;
-        paper = 2;
-        scissor = 3;
-        int aiChoice = random.nextInt(3) + 1; // Generates 1, 2, or 3
-        return aiChoice;
+        return random.nextInt(3) + 1; // Generates 1, 2, or 3 directly
     }
 }
