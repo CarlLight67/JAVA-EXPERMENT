@@ -87,7 +87,7 @@ public class RandomGame {
         String draw = "IT'S A TIE!";
 
         String res = "RESULT!!!";
-
+        String input = "";
         int ai = AiPick();
         int AiScore = 0;
         int userScore = 0;
@@ -104,21 +104,32 @@ public class RandomGame {
 
 
 
+        int user = 0;
+
+        input = JOptionPane.showInputDialog(
+                null,
+                "INPUT YOUR NUMBER",
+                        "PICK",
+                    JOptionPane.PLAIN_MESSAGE
+        );
+        user = Integer.parseInt(input);
+
+
+        ///needed to update kase may problem sya sa pag identify ng input need kopa chcek later
+
+
 
 
 
 
         //==================================================
         if (user == ai) {
-
             JOptionPane.showMessageDialog(
                     null,
                     draw,
                     res,
                     JOptionPane.INFORMATION_MESSAGE
             );
-
-
         }
         else if((user == paper && ai == scissor) || (user == rock && ai == paper) || (user == paper && ai == scissor)){
 
