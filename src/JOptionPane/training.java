@@ -18,6 +18,7 @@ public class training {
             if (ask.equalsIgnoreCase("Y")) {
                 System.out.println("PROCESSING.........");
 
+
                 while (true) {
                     System.out.print("DO YOU HAVE A STUDENT ID? || Y OR N: ");
                     confirmationId = input.nextLine().trim();
