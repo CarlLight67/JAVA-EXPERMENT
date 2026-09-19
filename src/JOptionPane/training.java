@@ -1,4 +1,4 @@
-package JOptionPane; // 1. Fixes the red error
+package JOptionPane;
 
 import java.util.Scanner;
 
@@ -8,7 +8,7 @@ public class training {
 
         Scanner input = new Scanner(System.in);
 
-        String ask; // 2. Removed redundant ""
+        String ask;
         String confirmationId;
 
         while (true) {
@@ -31,7 +31,6 @@ public class training {
                         break;
                     } else {
                         System.out.println("INVALID ANSWER!!");
-                        // Removed redundant continue
                     }
                 }
                 break;
@@ -41,7 +40,6 @@ public class training {
                 break;
             } else {
                 System.out.println("ENTER THE RIGHT VALUE || Y or N?");
-                // Removed redundant continue
             }
         }
         input.close();
