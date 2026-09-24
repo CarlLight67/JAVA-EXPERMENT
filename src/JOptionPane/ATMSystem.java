@@ -37,9 +37,15 @@ public class ATMSystem {
 
         int AdminPin = 1234;
 
-        String correctPin = "PIN Correct! Welcome to Java Bank.";
+        String correctPin = """
+                ======================================================
+                          PIN Correct! Welcome to Java Bank.
+                ======================================================
+                """;
 
         String incorrectPin = "Incorrect PIN. Try again.";
+
+
 
         int userInput;
         int Error = 0;
@@ -52,6 +58,8 @@ public class ATMSystem {
 
                 if(userInput == AdminPin){
 
+                    clearScreen();
+
                     System.out.println(correctPin);
                     session();
                     break;
@@ -60,9 +68,8 @@ public class ATMSystem {
                 } // accepted value
 
                 else if(userInput != AdminPin){
-
+                    clearScreen();
                     System.out.println(incorrectPin);
-
                     Error++;
                     System.out.println("ATTEMPT: " + Error);
                     time(1000);
@@ -82,7 +89,7 @@ public class ATMSystem {
                         break;
                     }
                 } //not accepted value
-                continue;
+
 
 
         }// ending of the while loop
