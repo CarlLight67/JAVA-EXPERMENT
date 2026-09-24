@@ -52,7 +52,7 @@ public class ATMSystem {
 
                 if(userInput == AdminPin){
 
-                    System.out.println("GOOD");
+                    System.out.println(correctPin);
                     session();
                     break;
 
@@ -61,7 +61,7 @@ public class ATMSystem {
 
                 else if(userInput != AdminPin){
 
-                    System.out.println("Wrong");
+                    System.out.println(incorrectPin);
 
                     Error++;
                     System.out.println("ATTEMPT: " + Error);
@@ -77,12 +77,13 @@ public class ATMSystem {
 
                     } // warning if 2 is reach
 
-                    else if (Error <= 3) {
+                    else if (Error >= 3) {
                         System.out.println("TRY AGAIN LATER");
                         break;
                     }
-                        continue;
                 } //not accepted value
+                continue;
+
 
         }// ending of the while loop
 
