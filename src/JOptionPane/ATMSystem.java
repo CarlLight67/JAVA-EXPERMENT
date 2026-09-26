@@ -104,7 +104,6 @@ public class ATMSystem {
                 """);
         time(1000);
         clearScreen();
-
         //===========================================================
 
         double AccountBalance = 500;
