@@ -1,6 +1,4 @@
-package JOptionPane;
-
-import com.sun.source.doctree.RawTextTree;
+package ATMSystem_UI_and_Teminal;
 
 import java.util.Scanner;
 

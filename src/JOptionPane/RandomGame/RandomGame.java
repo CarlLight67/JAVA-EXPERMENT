@@ -1,4 +1,5 @@
-import java.awt.*;
+package JOptionPane.RandomGame;
+
 import java.util.Random;
 import javax.swing.*;
 
