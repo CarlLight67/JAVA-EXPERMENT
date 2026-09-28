@@ -7,6 +7,7 @@ public class BasicCalculator {
 
 while(true){
         try{
+
             String title = "BASIC CALCULATOR";
 
             String rawNum1 = JOptionPane.showInputDialog(null,"ENTER THE FIRST VALUE:");
