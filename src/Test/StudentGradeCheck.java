@@ -12,7 +12,7 @@ public class StudentGradeCheck {
                 title,
                 JOptionPane.PLAIN_MESSAGE);
 
-        String name =Character.toUpperCase(rawName.charAt(0)) + rawName.substring(1).toLowerCase();
+            String name = rawName.substring(0,1).toUpperCase() + rawName.substring(1) ;
 
         while (true) {
 
